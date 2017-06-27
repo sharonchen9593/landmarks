@@ -22,8 +22,11 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "jwt-simple": "^0.5.1",
     "mongoose": "^4.11.0",
     "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "webpack": "^3.0.0"
   }
 }
