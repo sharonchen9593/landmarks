@@ -1,10 +1,12 @@
-# React-Starter-Template
+# Landmarks
 
 ## Summary ##
-  Boilerplate template to start using React and Node.js that also works on Heroku.
+  Users can upload pictures (or url of pictures if that's easier) that they find of places they want to go, but they're not sure what or where it is.
+
+  API will return the location and user can add it to their favorites list.
 
 ## How to Get Started ##
-  In your terminal run 
+  In your terminal run
   ```
   >npm install
   ```
@@ -12,19 +14,19 @@
   ```
   >npm install -g nodemon
   ```
-  
+
   Auto restart your server using nodemon
   ```
   >nodemon app.js
   ```
-  
+
   In a new terminal tab, auto re-compile your ES6 code with Babel
   ```
   >webpack --watch
   ```
-  
+
   Preview your file in browser by going to localhost:3000
-  
+
 
 ## About the Files ##
 
@@ -39,8 +41,8 @@ Have to have script: postinstall for Heroku to run the second package.json in th
 
 ### webpack.config.js ###
 Configures Webpack to use Babel to compile all ES6 syntax into bundle.js in the public folder.
-  
-  
+
+
 ### public (folder) ###
 Public folder where all your front-end code will be.
 
@@ -55,5 +57,5 @@ Basic HTML template. Imported all the React files so we don't have to type "impo
 
 #### src ####
 Your app components.
-  
+
 
