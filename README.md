@@ -16,7 +16,7 @@
   ```
 
   Auto restart your server using nodemon
-  ```
+  ``````
   >nodemon app.js
   ```
 
