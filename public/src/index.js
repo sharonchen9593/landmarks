@@ -1,18 +1,18 @@
-// dont need to import React because already imported in index.html
 
-import Compnent1 from './components/component1';
+import {BrowserRouter, Route} from 'react-router-dom';
 
-class App extends React.Component {
+import App from './components/app';
+import SignIn from './components/signin';
+
+ReactDOM.render(
+	<BrowserRouter>
+		<div>
+			<Route path="/" component={App}>
+			</Route>
+			<Route path="/signin" component={SignIn}>
+			</Route>
+		</div>
+	</BrowserRouter>
 	
-	render() {
-		return (
-			<div>
-				Hello from index.js
-				<Compnent1 />
-			</div>
-	);
-	}
-}
-
-ReactDOM.render(<App />, document.querySelector('.container'))
+	, document.querySelector('.container'));
 

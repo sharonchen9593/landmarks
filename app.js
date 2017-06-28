@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 
 //App Setup
 
-// app.use('/', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
 app.use(morgan('combined'));
 app.use(bodyParser.json({type: '*/*'}));
