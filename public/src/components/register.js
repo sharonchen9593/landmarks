@@ -1,4 +1,4 @@
-export default class Register extends React.Component {
+export default class signup extends React.Component {
   render() {
     return (
       <form>
