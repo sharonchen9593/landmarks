@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 import App from './components/app';
 import SignIn from './components/signin';
-import Register from './components/register';
+import Signup from './components/signup';
 import Upload from './components/UploadImagesHere'
 
 ReactDOM.render(
@@ -11,10 +11,9 @@ ReactDOM.render(
 		<div>
 			<Route path="/" component={App} />
 			<Route path="/signin" component={SignIn}/>
-			<Route path ="/signup" component={register} />
+			<Route path ="/signup" component={Signup} />
 			<Route path ="/Upload" component={UploadImagesHere} />
 		</div>
 	</BrowserRouter>
 
 	, document.querySelector('.container'));
-
