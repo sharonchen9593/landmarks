@@ -12,6 +12,9 @@ module.exports=function(app) {
   app.get('/signin', function(req, res){
 	  res.sendFile(__dirname + '/public/index.html');
   });
+  app.get('/signup', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+  });
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 };
