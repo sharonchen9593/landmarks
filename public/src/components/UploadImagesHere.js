@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default class UploadImagesHere extends React.Component {
 	render() {
 		return (
