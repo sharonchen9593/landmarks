@@ -1,4 +1,4 @@
-export default class UploadImagesHere extends React.Component {
+export default class Upload extends React.Component {
 	render() {
 		return (
 			<div>
