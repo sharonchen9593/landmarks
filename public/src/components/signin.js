@@ -4,15 +4,15 @@ import {reduxForm} from 'redux-form';
 
 class SignIn extends React.Component {
 
-	signin({email, password}) {
+	handleFormSubmit({username, password}) {
 
-		console.log(email, password)
+		console.log(username, password)
 	}
 
 	render() {
-		var {handleSubmit, fields: {username, password}} = this.props
+		var {handleSubmit, fields: {username, password}} = this.props;
     return (
-      <form onSubmit = {handleSubmit(this.signin.bind(this))}>
+      <form onSubmit = {handleSubmit(this.handleFormSubmit.bind(this))}>
       	<fieldset>
       		<label>Username</label>
         	<input {...username} />
@@ -21,7 +21,7 @@ class SignIn extends React.Component {
       		<label>Password</label>
         	<input {...password} />
         </fieldset>
-        <button type="submit">Sign In</button>
+        <button action="submit">Sign In</button>
       </form>
     );
   }
