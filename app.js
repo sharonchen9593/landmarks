@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var router = require('./router');
 var mongoose = require('mongoose');
-
+//var googlecloud = require('./services/googlecloud');
 
 //DB Setup
 mongoose.connect('mongodb://localhost:auth/auth');
