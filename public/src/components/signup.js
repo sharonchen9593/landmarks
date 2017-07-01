@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import {userSignupRequest} from '../../actions/signup';
+import {userSignupRequest} from '../../actions';
 import { Redirect } from 'react-router';
 
 class Signup extends React.Component {
