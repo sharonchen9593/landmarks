@@ -10,6 +10,7 @@ import SignIn from './components/signin';
 import SignUp from './components/signup';
 import Upload from './components/Upload';
 import NavBar from './components/navbar';
+import Account from './components/account';
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
 			<Route path="/signin" component={SignIn}/>
 			<Route path ="/signup" component={SignUp} />
 			<Route path ="/Upload" component={Upload} />
+			<Route path ="/account" component={Account} />
 		</div>
 	</BrowserRouter>
 	, document.querySelector('.container'));

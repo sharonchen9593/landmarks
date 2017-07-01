@@ -10,20 +10,21 @@ export default class SignIn extends React.Component {
 		
 		this.state = {
 			authenticated: false,
-			redirect: false
+			redirect: false,
+			username: '',
+			password: ''
 		}
 	}
 	
+	onChange(e) {
+		this.setState({[e.target.name]: e.target.value})
+	}
 	
-	handleSubmit(event) {
-		event.preventDefault();
-		var username = this.refs.username.value;
-		var password = this.refs.password.value;
-		console.log(this.refs.username.value, this.refs.password.value, __dirname+'signin')
-		
-		this.setState = this.setState.bind(this)
-		
-		
+	onSubmit(e) {
+		e.preventDefault();
+		var username = this.state.username;
+		var password = this.state.password;
+		console.log(username, password)
 		$.ajax({
 			url: __dirname+'signin',
 			type: 'POST',
@@ -31,23 +32,14 @@ export default class SignIn extends React.Component {
 			data: JSON.stringify({username:username, password:password}),
 			contentType: 'application/json',
 			success: function(response) {
+				console.log(response)
 				this.setState({authenticated: true, redirect: true})
+				localStorage.setItem('token', response.token)
 			},
 			error: function() {
 				alert('Wrong Username/Password')
 			}
 		})
-		
-		
-		// this.signIn(username, password, function(response) {
-		// 	console.log("this", this)
-		// 	console.log(response)
-		// 	this.setState({authenticated: true, redirect: true});
-		// })
-
-	}
-	
-	signIn(username, password, callback) {
 	}
 	
 	render() {
@@ -55,13 +47,24 @@ export default class SignIn extends React.Component {
 			return <Redirect to= '/account'/>;
 		}
 		return (
-			<form onSubmit={this.handleSubmit.bind(this)}>
-				Username:
-				<input type="text" ref="username" />
-				Password:
-				<input type="text" ref="password" />
+			<form onSubmit = {this.onSubmit.bind(this)}>
+				<label>Username:</label>
+				<input type="text"
+				       name="username"
+				       value={this.state.username}
+				       onChange = {this.onChange.bind(this)}
+				/>
+				<label>Password:</label>
+				<input
+					type="password"
+					name="password"
+					value={this.state.password}
+					onChange = {this.onChange.bind(this)}
+				/>
 				<button type="submit">Sign In</button>
 			</form>
 		);
 	}
 }
+
+
