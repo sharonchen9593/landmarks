@@ -18,6 +18,10 @@ module.exports=function(app) {
 	  res.sendFile(__dirname + '/public/index.html');
   });
 
+  app.get('/mainpage', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
   app.get('/signup', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
   });

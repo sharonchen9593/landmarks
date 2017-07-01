@@ -15,6 +15,7 @@ import Upload from './components/Upload';
 import NavBar from './components/navbar';
 import Account from './components/account';
 import Signout from './components/signout';
+import MainPage from './components/mainpage';
 
 const store = createStore(reducer, {}, applyMiddleware(thunk, logger));
 
@@ -23,6 +24,7 @@ ReactDOM.render(
 		<BrowserRouter>
 			<div>
 				<Route path="/" component={NavBar} />
+				<Route path="/mainpage" component={MainPage}/>
 				<Route path="/signin" component={SignIn}/>
 				<Route path ="/signup" component={SignUp} />
 				<Route path ="/Upload" component={Upload} />
