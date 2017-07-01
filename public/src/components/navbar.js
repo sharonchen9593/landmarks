@@ -8,11 +8,12 @@ class NavBar extends React.Component {
   renderLinks() {
     if (this.props.authenticated) {
       return (
+
         <Nav pullRight>
           <LinkContainer to='profile'>
             <NavItem eventKey={1} href="#">Profile</NavItem>
           </LinkContainer>
-          <LinkContainer to='/signin'>
+          <LinkContainer to='/signout'>
             <NavItem eventKey={1} href="/signout">Sign Out</NavItem>
           </LinkContainer>
         </Nav>
@@ -34,7 +35,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse collapseOnSelect>
+        <Navbar inverse collapseOnSelect fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Landmarks!</a>
