@@ -1,7 +1,7 @@
 //import * as actions from '../actions';
 import axios from 'axios';
 import React from 'react';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 
 
 export default class SignIn extends React.Component {
@@ -24,22 +24,32 @@ export default class SignIn extends React.Component {
 		e.preventDefault();
 		var username = this.state.username;
 		var password = this.state.password;
-		console.log(username, password)
-		$.ajax({
-			url: __dirname+'signin',
-			type: 'POST',
-			context: this,
-			data: JSON.stringify({username:username, password:password}),
-			contentType: 'application/json',
-			success: function(response) {
-				console.log(response)
-				this.setState({authenticated: true, redirect: true})
-				localStorage.setItem('token', response.token)
-			},
-			error: function() {
-				alert('Wrong Username/Password')
-			}
+		console.log(username, password);
+		var self = this;
+		axios.post('/signin', {username, password})
+		.then(function(response) {
+			console.log(response)
+			self.setState({authenticated: true, redirect: true})
+			localStorage.setItem('token', response.token)
 		})
+		.catch(function(error) {
+			alert("Invalid Username/Password")
+		})
+		// $.ajax({
+		// 	url: __dirname+'signin',
+		// 	type: 'POST',
+		// 	context: this,
+		// 	data: JSON.stringify({username:username, password:password}),
+		// 	contentType: 'application/json',
+		// 	success: function(response) {
+		// 		console.log(response)
+		// 		this.setState({authenticated: true, redirect: true})
+		// 		localStorage.setItem('token', response.token)
+		// 	},
+		// 	error: function() {
+		// 		alert('Wrong Username/Password')
+		// 	}
+		// })
 	}
 	
 	render() {

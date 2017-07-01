@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -17,7 +18,18 @@ export default class Signup extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
+    var username = this.state.username;
+    var password = this.state.password;
+    
+	  axios.post('/signup', {username, password})
+	  .then(function(response) {
+		  console.log(response)
+		  self.setState({authenticated: true, redirect: true})
+		  localStorage.setItem('token', response.token)
+	  })
+	  .catch(function(error) {
+		  alert("Invalid Username/Password")
+	  })
   }
   
   render() {
