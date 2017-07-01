@@ -35,7 +35,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse collapseOnSelect fixedTop>
+        <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Landmarks!</a>
