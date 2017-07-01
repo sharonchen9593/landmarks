@@ -36,12 +36,19 @@ export function userSigninRequest(userData) {
   }
 }
 
+export function userSignoutRequest() {
+  localStorage.removeItem('token')
+
+  return {type: SIGNOUT}
+}
+
 
 // reducer
 
 
 const SIGNIN_SUCCESS="SIGNIN_SUCCESS"
 const SIGNIN_ERROR="SIGNIN_ERROR"
+const SIGNOUT = "SIGNOUT"
 
 
 
@@ -58,6 +65,7 @@ function setSigninError(signinError) {
     signinError
   }
 }
+
 
 export default function reducer(state={
   isSigninSuccess: false,
@@ -78,6 +86,12 @@ export default function reducer(state={
       authenticated: false,
       signinError: action.signinError
     };
+
+    case SIGNOUT:
+    return {
+      ...state,
+      authenticated: false
+    }
 
     default:
       return state;

@@ -13,7 +13,7 @@ class NavBar extends React.Component {
             <NavItem eventKey={1} href="#">Profile</NavItem>
           </LinkContainer>
           <LinkContainer to='/signin'>
-            <NavItem eventKey={1} href="/signout">Sign Out</NavItem>
+            <NavItem eventKey={3} href="/signout">Sign Outt</NavItem>
           </LinkContainer>
         </Nav>
       )

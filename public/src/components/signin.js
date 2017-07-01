@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { Redirect } from 'react-router';
 import {connect} from 'react-redux';
-import {userSigninRequest} from '../../actions/signin';
+import {userSigninRequest} from '../../actions';
 
 
 class SignIn extends React.Component {
