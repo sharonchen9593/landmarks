@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import {userSignupRequest} from '../../actions';
+import {userSignupRequest} from '../../actions/signup';
 import { Redirect } from 'react-router';
 
-export default class Signup extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props)
 
@@ -13,7 +13,6 @@ export default class Signup extends React.Component {
       password: '',
       confirmPassword: '',
       authenticated: false,
-      redirect: false
     }
   }
 
@@ -28,16 +27,16 @@ export default class Signup extends React.Component {
     var confirmPassword = this.state.confirmPassword;
     var self = this;
     if (password === confirmPassword) {
-      // this.props.userSignupRequest({username, password})     // for redux-thunk
-  	  axios.post('/signup', {username, password})
-  	  .then(function(response) {
-  		  console.log(response)
-  		  self.setState({authenticated: true, redirect: true})
-  		  localStorage.setItem('token', response.token)
-  	  })
-  	  .catch(function(error) {
-  		  alert("Invalid Username/Password")
-  	  })
+      this.props.userSignupRequest({username, password})     // for redux-thunk
+  	  // axios.post('/signup', {username, password})
+  	  // .then(function(response) {
+  		 //  console.log(response)
+  		 //  self.setState({authenticated: true, redirect: true})
+  		 //  localStorage.setItem('token', response.token)
+  	  // })
+  	  // .catch(function(error) {
+  		 //  alert("Invalid Username/Password")
+  	  // })
     }
     else {
       alert("Password does not match")
@@ -46,9 +45,8 @@ export default class Signup extends React.Component {
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to= '/account'/>;
-    }
+    let {isSignupPending, isSignupSuccess, signupError} = this.props;
+
     return (
       <form onSubmit = {this.onSubmit.bind(this)}>
         <label>Username:</label>
@@ -71,13 +69,35 @@ export default class Signup extends React.Component {
                onChange = {this.onChange.bind(this)}
         />
         <button type="submit">Submit</button>
+        {isSignupPending && <div>Please Wait...</div>}
+        {isSignupSuccess && <Redirect to= '/account'/>}
+        {signupError && <div>Invalid Username or Password</div>}
       </form>
     );
   }
 }
 
-// Signup.propTypes = {
-// 	userSignupRequest: React.PropTypes.func.isRequired
-// };
+const mapStateToProps = (state) => {
+  return {
+    isSignupPending: state.isSignupPending,
+    isSignupSuccess: state.isSignupSuccess,
+    signupError: state.signupError
+  }
+}
 
-// export default connect(null, {userSignupRequest})(Signup)    // for redux-thunk
+const mapDispatchToProps = (dispatch) => {
+  return {
+    userSignupRequest: (username, password) => dispatch(userSignupRequest(username, password))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)     // for redux-thunk
+
+
+
+
+
+
+
+
+
