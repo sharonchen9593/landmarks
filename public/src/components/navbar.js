@@ -14,11 +14,7 @@ class NavBar extends React.Component {
             <NavItem eventKey={1} href="#">Profile</NavItem>
           </LinkContainer>
           <LinkContainer to='/signout'>
-<<<<<<< HEAD
-            <NavItem eventKey={1} href="/signout">Sign Out</NavItem>
-=======
             <NavItem eventKey={3} href="/signout">Sign Out</NavItem>
->>>>>>> sharon/master
           </LinkContainer>
         </Nav>
       )
