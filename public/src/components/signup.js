@@ -2,15 +2,18 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {userSignupRequest} from '../../actions';
+import { Redirect } from 'react-router';
 
-class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props)
 
     this.state={
       username: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      authenticated: false,
+      redirect: false
     }
   }
 
@@ -23,26 +26,29 @@ class Signup extends React.Component {
     var username = this.state.username;
     var password = this.state.password;
     var confirmPassword = this.state.confirmPassword;
-
+    var self = this;
     if (password === confirmPassword) {
-      this.props.userSignupRequest({username, password})
+      // this.props.userSignupRequest({username, password})     // for redux-thunk
+  	  axios.post('/signup', {username, password})
+  	  .then(function(response) {
+  		  console.log(response)
+  		  self.setState({authenticated: true, redirect: true})
+  		  localStorage.setItem('token', response.token)
+  	  })
+  	  .catch(function(error) {
+  		  alert("Invalid Username/Password")
+  	  })
     }
     else {
       alert("Password does not match")
     }
 
-	  // axios.post('/signup', {username, password})
-	  // .then(function(response) {
-		 //  console.log(response)
-		 //  self.setState({authenticated: true, redirect: true})
-		 //  localStorage.setItem('token', response.token)
-	  // })
-	  // .catch(function(error) {
-		 //  alert("Invalid Username/Password")
-	  // })
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to= '/account'/>;
+    }
     return (
       <form onSubmit = {this.onSubmit.bind(this)}>
         <label>Username:</label>
@@ -74,4 +80,4 @@ class Signup extends React.Component {
 // 	userSignupRequest: React.PropTypes.func.isRequired
 // };
 
-export default connect((state)=> {return {}}, {userSignupRequest})(Signup)
+// export default connect(null, {userSignupRequest})(Signup)    // for redux-thunk
