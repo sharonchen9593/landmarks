@@ -6,18 +6,18 @@ import {connect} from 'react-redux'
 class NavBar extends React.Component {
 
   renderLinks() {
-    if (this.props.authenticated) {
+    if (localStorage.token) {
       return (
         <Nav pullRight>
           <LinkContainer to='profile'>
             <NavItem eventKey={1} href="#">Profile</NavItem>
           </LinkContainer>
-          <LinkContainer to='/signin'>
-            <NavItem eventKey={3} href="/signout">Sign Outt</NavItem>
+          <LinkContainer to='/signout'>
+            <NavItem eventKey={3} href="/signout">Sign Out</NavItem>
           </LinkContainer>
         </Nav>
       )
-    } else if (!this.props.authenticated) {
+    } else if (!localStorage.token) {
       return (
         <Nav pullRight>
           <LinkContainer to='/signin'>

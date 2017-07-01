@@ -6,15 +6,26 @@ var requireAuth = passport.authenticate('jwt', {session: false});
 var requireSignin = passport.authenticate('local', {session: false});
 
 module.exports=function(app) {
-  app.get('/account', requireAuth, function(req, res) {
+  app.get('/feature', requireAuth, function(req, res) {
     res.send({hi:'there'});
   });
+
+  app.get('/account', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
   app.get('/signin', function(req, res){
 	  res.sendFile(__dirname + '/public/index.html');
   });
+
   app.get('/signup', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
   });
+
+  app.get('/signout', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 };

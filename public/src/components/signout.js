@@ -4,11 +4,13 @@ import {userSignoutRequest} from '../../actions';
 
 class Signout extends React.Component {
   componentWillMount() {
-    this.props.signoutUser();
+    this.props.userSignoutRequest();
   }
   render() {
     return <div>You are signed out.</div>
   }
 }
 
-export default connect()(Signout)
+
+
+export default connect(null, {userSignoutRequest})(Signout)
