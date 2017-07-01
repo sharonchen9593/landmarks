@@ -1,37 +1,47 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux'
+import {userSignupRequest} from '../../actions';
 
-export default class Signup extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props)
-    
+
     this.state={
       username: '',
       password: '',
       confirmPassword: ''
     }
   }
-  
+
   onChange(e) {
     this.setState({[e.target.name]: e.target.value})
   }
-  
+
   onSubmit(e) {
     e.preventDefault();
     var username = this.state.username;
     var password = this.state.password;
-    
-	  axios.post('/signup', {username, password})
-	  .then(function(response) {
-		  console.log(response)
-		  self.setState({authenticated: true, redirect: true})
-		  localStorage.setItem('token', response.token)
-	  })
-	  .catch(function(error) {
-		  alert("Invalid Username/Password")
-	  })
+    var confirmPassword = this.state.confirmPassword;
+
+    if (password === confirmPassword) {
+      this.props.userSignupRequest({username, password})
+    }
+    else {
+      alert("Password does not match")
+    }
+
+	  // axios.post('/signup', {username, password})
+	  // .then(function(response) {
+		 //  console.log(response)
+		 //  self.setState({authenticated: true, redirect: true})
+		 //  localStorage.setItem('token', response.token)
+	  // })
+	  // .catch(function(error) {
+		 //  alert("Invalid Username/Password")
+	  // })
   }
-  
+
   render() {
     return (
       <form onSubmit = {this.onSubmit.bind(this)}>
@@ -59,3 +69,9 @@ export default class Signup extends React.Component {
     );
   }
 }
+
+// Signup.propTypes = {
+// 	userSignupRequest: React.PropTypes.func.isRequired
+// };
+
+export default connect((state)=> {return {}}, {userSignupRequest})(Signup)
