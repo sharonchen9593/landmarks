@@ -5,7 +5,10 @@ import Basic from './basic';
 export default class MainPage extends React.Component {
 	render() {
 		return (
-      <Basic />
+
+  <form method='post' action='/upload' encType='multipart/form-data'>
+  <input type='file' name='image'/>
+  <input type='submit' /></form>
 
 		);
 	}

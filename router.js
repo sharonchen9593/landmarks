@@ -42,8 +42,9 @@ module.exports=function(app) {
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 
-  app.post('/upload', (req,res) => {
-    console.log('this is not working!!!');
-  })
+  app.post('/upload',function(request,response,next){
+
+   console.log('helo')
+   });
 
 };

@@ -6,7 +6,6 @@ import Signout from './signout';
 import SignIn from './signin';
 import Account from './account';
 
-import Upload from './Upload';
 
 const Main = () => (
   <main>
