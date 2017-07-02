@@ -4,9 +4,10 @@ import SignUp from './signup';
 import MainPage from './mainpage';
 import Signout from './signout';
 import SignIn from './signin';
+import Profile from './profile';
+import Upload from './Upload';
 import Account from './account';
 
-import Upload from './Upload';
 
 const Main = () => (
   <main>
@@ -15,6 +16,7 @@ const Main = () => (
       <Route path='/signup' component={SignUp}/>
       <Route path='/signout' component={Signout}/>
       <Route path='/signin' component={SignIn}/>
+      <Route path='/profile' component={Profile}/>
       <Route path='/account' component={Account}/>
 
 

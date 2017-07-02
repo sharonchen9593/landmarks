@@ -6,19 +6,19 @@ var ExtractJwt = require('passport-jwt').ExtractJwt;
 var LocalStrategy = require('passport-local');
 
 //create local strategy. check if need usernameField
-var localLogin = new LocalStrategy({usernameField: 'username'}, function(email, password, done) {
+var localLogin = new LocalStrategy({usernameField: 'username'}, function(username, password, done) {
 	// verify this username and password.
 	User.findOne({}, function(err, user) {
 		if (err) { return done(err); }
 		//call done with false if incorrect
 		if (!user) { return done(null, false)}
-		
+
 		// call done with username if correct username and pw
 		//compare password === user.password
 		user.comparePassword(password, function(err, isMatch){
 			if(err) {return done(err);}
 			if (!isMatch) {return done(null, false);}
-			
+
 			return done(null, user);
 	})
 	})
@@ -37,7 +37,7 @@ var jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
 	// otherwise, call done without user
 	User.findById(payload.sub, function(err, user) {
 		if (err) { return done(err, false); } // failed search
-		
+
 		if (user) {
 			done(null,user);
 		} else {
