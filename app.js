@@ -1,7 +1,7 @@
 var express = require ('express');
 var app = express();
 var http = require('http');
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser')
 var morgan = require('morgan');
 var router = require('./router');
 var mongoose = require('mongoose');
@@ -20,6 +20,10 @@ app.use(bodyParser.json({type: '*/*'}));
 router(app)
 
 //Server Setup
+
+app.post('/upload', (res,req) => {
+  console.log('hiiiii')
+})
 
 var port = process.env.PORT || 3000;
 
