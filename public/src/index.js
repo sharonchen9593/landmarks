@@ -19,17 +19,13 @@ import MainPage from './components/mainpage';
 
 const store = createStore(reducer, {}, applyMiddleware(thunk, logger));
 
+
+
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
-				<Route path="/" component={NavBar} />
-				<Route path="/mainpage" component={MainPage}/>
-				<Route path="/signin" component={SignIn}/>
-				<Route path ="/signup" component={SignUp} />
-				<Route path ="/Upload" component={Upload} />
-				<Route path ="/account" component={Account} />
-				<Route path ="/signout" component={Signout} />
+				<App />
 			</div>
 		</BrowserRouter>
 	</Provider>
