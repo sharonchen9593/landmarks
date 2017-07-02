@@ -5,12 +5,11 @@ const username=localStorage.getItem('username')
 
 export default class Profile extends React.Component {
 
-  componentDidMount() {
-    //axios request to get user data
-  }
-
-
 	render() {
+    if (!localStorage.getItem('reload')) {
+      localStorage.setItem('reload', true)
+      window.location.reload()
+    }
 		return (
       <div>
 			<div>Profile Page</div>

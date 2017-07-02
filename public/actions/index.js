@@ -29,6 +29,7 @@ export function userSigninRequest(userData) {
 export function userSignoutRequest() {
   localStorage.removeItem('token')
   localStorage.removeItem('username')
+  localStorage.removeItem('reload')
   return {type: SIGNOUT}
 }
 

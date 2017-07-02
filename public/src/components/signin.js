@@ -4,6 +4,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import {connect} from 'react-redux';
 import {userSigninRequest} from '../../actions';
+import {Nav,Navbar,NavDropdown, MenuItem, NavItem} from 'react-bootstrap'
 
 
 class SignIn extends React.Component {
@@ -61,6 +62,7 @@ class SignIn extends React.Component {
 				{isSigninSuccess && <Redirect to= '/profile'/>}
 				{signinError && <div>Invalid Username or Password</div>}
 			</form>
+
 		);
 	}
 }
