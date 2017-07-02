@@ -11,7 +11,6 @@ import reducer from '../actions'
 import App from './components/app';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
-import Upload from './components/Upload';
 import NavBar from './components/navbar';
 import Profile from './components/profile';
 import Signout from './components/signout';

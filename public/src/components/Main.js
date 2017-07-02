@@ -5,7 +5,11 @@ import MainPage from './mainpage';
 import Signout from './signout';
 import SignIn from './signin';
 import Profile from './profile';
+<<<<<<< HEAD
 import Upload from './Upload';
+=======
+import Account from './account';
+>>>>>>> 42301b92eb3892db1db43c3facdf1f23a878cb43
 
 
 const Main = () => (
