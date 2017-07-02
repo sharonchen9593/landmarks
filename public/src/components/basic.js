@@ -1,38 +1,43 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
+import Dropzone from 'react-dropzone'
+import request from 'SuperAgent';
+
+
 
 class Basic extends React.Component {
-  constructor() {
-    super()
-    this.state = { files: [] }
-  }
 
-  onDrop(files) {
-    this.setState({
-      files
-    });
-  }
 
   render() {
     return (
       <section>
         <div className="dropzone">
-          <Dropzone onDrop={this.onDrop.bind(this)}>
+          <Dropzone
+          accept="image/jpeg, image/png"
+          onDrop={this.onDrop.bind(this)}>
             <p>Try dropping some files here, or click to select files to upload.</p>
           </Dropzone>
         </div>
-        <aside>
-          <h2>Dropped files</h2>
-          <ul>
-            {
-              this.state.files.map(f => <li>{f.name} - {f.size} bytes</li>)
-            }
-          </ul>
-        </aside>
-      </section>
+        </section>
     );
   }
+
+
+onDrop(files) {
+    console.log(files);
+      var req = request.post('/upload');
+        files.forEach((file)=> {
+            req.attach(file.name, file);
+        });
+        req.end(function(err,res){
+          if (err || !res.ok) {
+            alert('oh no! Error');
+          } else {
+            alert('yay got' + JSON.stringify(res.body));
+          }
+        });
+    }
+
+
+
 }
-
-
 export default Basic;
