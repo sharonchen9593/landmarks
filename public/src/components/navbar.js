@@ -3,6 +3,7 @@ import {Nav,Navbar,NavDropdown, MenuItem, NavItem} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import {connect} from 'react-redux'
 
+
 class NavBar extends React.Component {
 
   renderLinks() {
@@ -10,7 +11,7 @@ class NavBar extends React.Component {
       return (
 
         <Nav pullRight>
-          <LinkContainer to='profile'>
+          <LinkContainer to='/profile'>
             <NavItem eventKey={1} href="#">Profile</NavItem>
           </LinkContainer>
           <LinkContainer to='/signout'>
@@ -24,7 +25,7 @@ class NavBar extends React.Component {
           <LinkContainer to='/signin'>
             <NavItem eventKey={1} href="/signin">Login</NavItem>
           </LinkContainer>
-          <LinkContainer to='signup'>
+          <LinkContainer to='/signup'>
             <NavItem eventKey={2} href="/signup">Sign Up</NavItem>
           </LinkContainer>
         </Nav>

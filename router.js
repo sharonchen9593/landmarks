@@ -14,9 +14,15 @@ const vision = Vision();
 var requireAuth = passport.authenticate('jwt', {session: false});
 var requireSignin = passport.authenticate('local', {session: false});
 
+var currentUser = ""
+
 module.exports=function(app) {
   app.get('/feature', requireAuth, function(req, res) {
     res.send({hi:'there'});
+  });
+
+  app.get('/profile', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
   });
 
   app.get('/account', function(req, res){
@@ -39,7 +45,9 @@ module.exports=function(app) {
     res.sendFile(__dirname + '/public/index.html');
   });
 
-  app.post('/signin', requireSignin, Authentication.signin);
+  app.post('/signin', requireSignin, Authentication.signin, function(req, res) {
+    console.log(req)
+  });
   app.post('/signup', Authentication.signup);
 
   app.post('/upload',function(request,response,next){

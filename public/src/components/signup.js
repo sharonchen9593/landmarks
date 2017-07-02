@@ -45,7 +45,7 @@ class Signup extends React.Component {
   }
 
   render() {
-    let {isSignupPending, isSignupSuccess, signupError} = this.props;
+    let {isSignupSuccess, signupError} = this.props;
 
     return (
       <form onSubmit = {this.onSubmit.bind(this)}>
@@ -69,8 +69,7 @@ class Signup extends React.Component {
                onChange = {this.onChange.bind(this)}
         />
         <button type="submit">Submit</button>
-        {isSignupPending && <div>Please Wait...</div>}
-        {isSignupSuccess && <Redirect to= '/account'/>}
+        {isSignupSuccess && <Redirect to= '/profile'/>}
         {signupError && <div>Invalid Username or Password</div>}
       </form>
     );
@@ -79,7 +78,6 @@ class Signup extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isSignupPending: state.isSignupPending,
     isSignupSuccess: state.isSignupSuccess,
     signupError: state.signupError
   }

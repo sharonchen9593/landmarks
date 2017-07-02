@@ -12,13 +12,17 @@ import App from './components/app';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
 import NavBar from './components/navbar';
-import Account from './components/account';
+import Profile from './components/profile';
 import Signout from './components/signout';
 import MainPage from './components/mainpage';
+import {SIGNIN_SUCCESS} from '../actions'
 
 const store = createStore(reducer, {}, applyMiddleware(thunk, logger));
 
-
+const token=localStorage.getItem('token')
+if(token) {
+  store.dispatch({type: SIGNIN_SUCCESS})
+}
 
 ReactDOM.render(
 	<Provider store={store}>

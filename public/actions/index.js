@@ -16,6 +16,7 @@ export function userSigninRequest(userData) {
       dispatch({type: SIGNIN_SUCCESS})
 
       localStorage.setItem('token', response.data.token)
+      localStorage.setItem('username', userData.username)
     })
     .catch(function(error) {
       console.log("failed", error)
@@ -27,7 +28,8 @@ export function userSigninRequest(userData) {
 
 export function userSignoutRequest() {
   localStorage.removeItem('token')
-
+  localStorage.removeItem('username')
+  localStorage.removeItem('reload')
   return {type: SIGNOUT}
 }
 
@@ -44,6 +46,7 @@ export function userSignupRequest(userData) {
       dispatch({type: SIGNUP_SUCCESS})
 
       localStorage.setItem('token', response.data.token)
+      localStorage.setItem('username', userData.username)
     })
     .catch(function(error) {
       console.log("failed", error)
@@ -56,7 +59,7 @@ export function userSignupRequest(userData) {
 // reducer
 
 
-const SIGNIN_SUCCESS="SIGNIN_SUCCESS";
+export const SIGNIN_SUCCESS="SIGNIN_SUCCESS";
 const SIGNIN_ERROR="SIGNIN_ERROR";
 const SIGNOUT = "SIGNOUT";
 const SIGNUP_SUCCESS="SIGNUP_SUCCESS";

@@ -59,7 +59,7 @@ class SignIn extends React.Component {
 					onChange = {this.onChange.bind(this)}
 				/>
 				<button type="submit">Sign In</button>
-				{isSigninSuccess && <Redirect to= '/account'/>}
+				{isSigninSuccess && <Redirect to= '/profile'/>}
 				{signinError && <div>Invalid Username or Password</div>}
 			</form>
 
