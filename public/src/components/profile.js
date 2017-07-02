@@ -12,8 +12,11 @@ export default class Profile extends React.Component {
     }
 		return (
       <div>
-			<div>Profile Page</div>
-      <div>Hello, {username}</div>
+  			<header>Profile Page</header>
+        <div className = "content">
+          <p>Hello, {username}</p>
+          <p>Saved Landmarks: </p>
+        </div>
       </div>
 		);
 	}

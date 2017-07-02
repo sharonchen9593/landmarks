@@ -2,3 +2,13 @@
     width: 100%;
     white-space: nowrap;
 }
+
+body {
+  margin: auto;
+  text-align: center;
+}
+
+header {
+  border-style: solid;
+  border-radius: 1px
+}

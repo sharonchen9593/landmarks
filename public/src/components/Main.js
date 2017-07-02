@@ -6,7 +6,6 @@ import Signout from './signout';
 import SignIn from './signin';
 import Profile from './profile';
 import Upload from './Upload';
-import Account from './account';
 
 
 const Main = () => (
@@ -17,7 +16,6 @@ const Main = () => (
       <Route path='/signout' component={Signout}/>
       <Route path='/signin' component={SignIn}/>
       <Route path='/profile' component={Profile}/>
-      <Route path='/account' component={Account}/>
 
 
     </Switch>
