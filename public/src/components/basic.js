@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone'
 import request from 'SuperAgent';
+import axios from 'axios';
 
 
 
@@ -23,19 +24,20 @@ class Basic extends React.Component {
 
 
 onDrop(files) {
-    console.log(files);
-      var req = request.post('/upload');
-        files.forEach((file)=> {
-            req.attach(file.name, file);
-        });
-        req.end(function(err,res){
-          if (err || !res.ok) {
-            alert('oh no! Error');
-          } else {
-            alert('yay got' + JSON.stringify(res.body));
-          }
-        });
-    }
+  axios.post('/upload')
+    // console.log(files);
+    //   var req = request.post('/upload');
+    //     files.forEach((file)=> {
+    //         req.attach(file.name, file);
+    //     });
+    //     req.end(function(err,res){
+    //       if (err || !res.ok) {
+    //         alert('oh no! Error');
+    //       } else {
+    //         alert('yay got' + JSON.stringify(res.body));
+    //       }
+    //     });
+}
 
 
 
