@@ -8,6 +8,7 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.state={
+      loaded: false,
       destinations: []
     }
   }
@@ -25,8 +26,11 @@ export default class Profile extends React.Component {
   }
 
   renderUserDestinations(destinations) {
-    console.log(destinations)
-    this.setState({destinations: destinations})
+    if (this.state.loaded === false) {
+      console.log(destinations)
+      this.setState({destinations: destinations, loaded: true})
+
+    }
   }
 
 	render() {
@@ -45,7 +49,12 @@ export default class Profile extends React.Component {
         <div className = "content2">
           <h1>Saved Destinations </h1>
           {this.getUserDestinations()}
-          <p>{this.state.destinations}</p>
+          <ul>
+
+          {console.log(this.state.destinations)}
+
+          {this.state.destinations.map( destination => <li>{destination}</li> )}
+          </ul>
         </div>
       </div>
 		);
