@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-class Basic extends React.Component {
+class AddFile extends React.Component {
 
   constructor(props) {
     super(props)
@@ -109,4 +109,4 @@ class Basic extends React.Component {
 
 
 }
-export default Basic;
+export default AddFile;
