@@ -8,7 +8,10 @@ var mongoose = require('mongoose');
 //var googlecloud = require('./services/googlecloud');
 
 //DB Setup
-mongoose.connect('mongodb://localhost:auth/auth');
+
+var mongoURL = "mongodb://user:password@ds145892.mlab.com:45892/landmarks" || "mongodb://localhost:auth/auth"
+
+mongoose.connect(mongoURL);
 
 
 //App Setup
