@@ -20,7 +20,10 @@ class AddFile extends React.Component {
 
     if(this.state.landmarkLat === '') {
       return (
-        <div>The LandMark could not be located</div>
+        <div>
+        <p>The LandMark could not be located</p>
+        <p>Please try another picture</p>
+        </div>
         )
     }
 
