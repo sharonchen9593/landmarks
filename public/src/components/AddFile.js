@@ -10,6 +10,7 @@ class AddFile extends React.Component {
     super(props)
 
     this.state={
+      loading: false,
       landmarkName: '',
       landmarkLat: 'none',
       landmarkLon: ''
@@ -17,6 +18,12 @@ class AddFile extends React.Component {
   }
 
   renderNameLatLong(){
+
+    if (this.state.loading) {
+      return (
+        <div><i className="fa fa-spinner fa-spin fa-3x"></i></div>
+        )
+    }
 
     if(this.state.landmarkLat === '') {
       return (
@@ -48,7 +55,7 @@ class AddFile extends React.Component {
         <Dropzone
           accept="image/jpeg, image/png"
           onDrop={this.previewFile.bind(this)}
-          style={{"width" : "50%", 'margin': "auto"}}
+          className="dropzonebox"
         >
             <p>Click Here to select files to upload.</p>
           </Dropzone>
@@ -60,7 +67,7 @@ class AddFile extends React.Component {
   }
 
   changeState(name, lat, lon) {
-    this.setState({landmarkName: name, landmarkLon: lon, landmarkLat: lat})
+    this.setState({landmarkName: name, landmarkLon: lon, landmarkLat: lat, loading: false})
     console.log(this.state)
   }
 
@@ -68,6 +75,8 @@ class AddFile extends React.Component {
   var preview = document.querySelector('img');
   var file    = document.querySelector('input[type=file]').files[0];
   var reader  = new FileReader();
+
+  this.setState({loading: true})
 
   var self = this
 
