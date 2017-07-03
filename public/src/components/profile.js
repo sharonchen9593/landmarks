@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
 
           {console.log(this.state.destinations)}
 
-          {this.state.destinations.map( destination => <li>{destination}</li> )}
+          {this.state.destinations.map( destination => <li key={destination}>{destination}</li> )}
           </ul>
         </div>
       </div>
