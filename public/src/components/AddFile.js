@@ -4,16 +4,28 @@ import request from 'SuperAgent';
 import axios from 'axios';
 
 
-
 class AddFile extends React.Component {
 
   constructor(props) {
     super(props)
 
     this.state={
-      landmarkName: 'Loading...',
-      landmarkLat: 'Loading...',
-      landmarkLon: 'Loading...'
+      landmarkName: '',
+      landmarkLat: '',
+      landmarkLon: ''
+    }
+  }
+
+  renderlinks(){
+    if(this.state.landmarkLat !== ''){
+      return (
+      <div>
+        <div>Name: {this.state.landmarkName}</div>
+        <div>Latitude: {this.state.landmarkLat}</div>
+        <div>Longitude: {this.state.landmarkLon}</div>
+        </div>
+        )
+
     }
   }
 
@@ -22,12 +34,17 @@ class AddFile extends React.Component {
     return (
       <section>
         <div className="title">Landmarks</div>
-        <input type="file" onChange={() => this.previewFile()} className="uploadimg"></input>
-        <img src="" height="200" alt="Image preview..." id="uploadedimg"/>
-        <div>Name: {this.state.landmarkName}</div>
-        <div>Latitude: {this.state.landmarkLat}</div>
-        <div>Longitude: {this.state.landmarkLon}</div>
+        <Dropzone
+          accept="image/jpeg, image/png"
+          onDrop={this.previewFile.bind(this)}
+          style={{"width" : "50%", 'margin': "auto"}}
+        >
+            <p>Click Here to select files to upload.</p>
+          </Dropzone>
+          <img src="" height="200" id="uploadedimg"/>
+        {this.renderlinks()}
       </section>
+
     );
   }
 
@@ -87,27 +104,6 @@ class AddFile extends React.Component {
   }
 
 }
-
-  onDrop(files) {
-    var file = files[0]
-    console.log("file", file.preview)
-    console.log("JSON", JSON.stringify(file))
-    //axios.post('/upload', files[0])
-      // console.log(files);
-      //   var req = request.post('/upload');
-      //     files.forEach((file)=> {
-      //         req.attach(file.name, file);
-      //     });
-      //     req.end(function(err,res){
-      //       if (err || !res.ok) {
-      //         alert('oh no! Error');
-      //       } else {
-      //         alert('yay got' + JSON.stringify(res.body));
-      //       }
-      //     });
-  }
-
-
 
 }
 export default AddFile;
