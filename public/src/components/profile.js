@@ -11,11 +11,15 @@ export default class Profile extends React.Component {
       window.location.reload()
     }
 		return (
-      <div>
-  			<header>Profile Page</header>
-        <div className = "content">
-          <p>Hello, {username}</p>
-          <p>Saved Landmarks: </p>
+      <div className = "profile">
+  			<div className = "content1">
+          <h1>Passport</h1>
+          <div className = "fontawesome"><i className="fa fa-user-circle-o"></i></div>
+          <p>Name: {username}</p>
+          <p>Location: Earth</p>
+        </div>
+        <div className = "content2">
+          <h1>Saved Destinations </h1>
         </div>
       </div>
 		);

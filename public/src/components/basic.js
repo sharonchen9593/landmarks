@@ -13,12 +13,13 @@ class Basic extends React.Component {
       <section>
         <div className="dropzone">
           <Dropzone
+          className = "dropzonebox"
           accept="image/jpeg, image/png"
           onDrop={this.onDrop.bind(this)}>
             <p>Try dropping some files here, or click to select files to upload.</p>
           </Dropzone>
         </div>
-        </section>
+      </section>
     );
   }
 

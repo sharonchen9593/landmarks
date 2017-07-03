@@ -44,21 +44,28 @@ class SignIn extends React.Component {
 		let {isSigninSuccess, signinError} = this.props;
 
 		return (
-			<form onSubmit = {this.onSubmit.bind(this)}>
+			<form onSubmit = {this.onSubmit.bind(this)} className="signinform">
+				<h1>Log In</h1>
+				<br />
 				<label>Username:</label>
+				<br />
 				<input type="text"
 				       name="username"
 				       value={this.state.username}
 				       onChange = {this.onChange.bind(this)}
 				/>
+				<br />
 				<label>Password:</label>
+				<br />
 				<input
 					type="password"
 					name="password"
 					value={this.state.password}
 					onChange = {this.onChange.bind(this)}
 				/>
-				<button type="submit">Sign In</button>
+				<br />
+				<button type="submit">Log In</button>
+
 				{isSigninSuccess && <Redirect to= '/profile'/>}
 				{signinError && <div>Invalid Username or Password</div>}
 			</form>

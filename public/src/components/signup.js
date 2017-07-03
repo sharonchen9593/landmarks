@@ -48,27 +48,36 @@ class Signup extends React.Component {
     let {isSignupSuccess, signupError} = this.props;
 
     return (
-      <form onSubmit = {this.onSubmit.bind(this)}>
+      <form onSubmit = {this.onSubmit.bind(this)} className = "signinform">
+        <h1>Sign Up</h1>
+        <br />
         <label>Username:</label>
+        <br />
         <input type="text"
                name="username"
                value={this.state.username}
                onChange = {this.onChange.bind(this)}
         />
+        <br />
         <label>Password:</label>
+        <br />
         <input
           type="password"
           name="password"
           value={this.state.password}
           onChange = {this.onChange.bind(this)}
         />
+        <br />
         <label>Confirm Password:</label>
+        <br />
         <input type="password"
                name="confirmPassword"
                value={this.state.confirmPassword}
                onChange = {this.onChange.bind(this)}
         />
+        <br />
         <button type="submit">Submit</button>
+
         {isSignupSuccess && <Redirect to= '/profile'/>}
         {signupError && <div>Invalid Username or Password</div>}
       </form>
