@@ -57,9 +57,11 @@ class AddFile extends React.Component {
           onDrop={this.previewFile.bind(this)}
           className="dropzonebox"
         >
-            <p>Click Here to select files to upload.</p>
+            <button>Click Here to select files to upload.</button>
           </Dropzone>
+          <br />
           <img height="200" id="uploadedimg"/>
+          <br />
         {this.renderNameLatLong()}
       </section>
 
