@@ -11,13 +11,20 @@ class AddFile extends React.Component {
 
     this.state={
       landmarkName: '',
-      landmarkLat: '',
+      landmarkLat: 'none',
       landmarkLon: ''
     }
   }
 
-  renderlinks(){
-    if(this.state.landmarkLat !== ''){
+  renderNameLatLong(){
+
+    if(this.state.landmarkLat === '') {
+      return (
+        <div>The LandMark could not be located</div>
+        )
+    }
+
+    else if(this.state.landmarkLat !== 'none'){
       return (
       <div>
         <div>Name: {this.state.landmarkName}</div>
@@ -27,6 +34,7 @@ class AddFile extends React.Component {
         )
 
     }
+
   }
 
 
@@ -42,7 +50,7 @@ class AddFile extends React.Component {
             <p>Click Here to select files to upload.</p>
           </Dropzone>
           <img height="200" id="uploadedimg"/>
-        {this.renderlinks()}
+        {this.renderNameLatLong()}
       </section>
 
     );
@@ -95,6 +103,11 @@ class AddFile extends React.Component {
     })
     .catch(function(error) {
       console.log("error", error)
+      var name = '';
+      var lon = '';
+      var lat = '';
+      self.changeState(name, lat, lon)
+
     })
 
   }, false);
