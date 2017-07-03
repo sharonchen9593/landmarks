@@ -51,7 +51,7 @@ class AddFile extends React.Component {
   favoritesButton() {
     if (localStorage.getItem('token')) {
       return(
-      <button onClick = {this.addToFavorites()}>Add Landmark to Profile</button>
+      <button onClick = {()=>this.addToFavorites()}>Add Landmark to Profile</button>
       )
     } else {
       return (
