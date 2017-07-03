@@ -15,15 +15,10 @@ body {
 section {
   align-content: center;
 }
-img {
-  border:0;
-}
-.myClass img{border:0;}
 
 .uploadimg {
   margin: auto;
   width: 200px;
-  border: 0px;
 
 }
 

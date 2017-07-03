@@ -41,7 +41,7 @@ class AddFile extends React.Component {
         >
             <p>Click Here to select files to upload.</p>
           </Dropzone>
-          <img src="" height="200" id="uploadedimg"/>
+          <img height="200" id="uploadedimg"/>
         {this.renderlinks()}
       </section>
 
