@@ -11,9 +11,6 @@ var mongoose = require('mongoose');
 
 var mongoURL = "mongodb://user:user@ds032340.mlab.com:32340/landmarks2"||"mongodb://localhost:auth/auth"
 
-// "mongodb://user:user@ds032340.mlab.com:32340/landmarks2"||"mongodb://localhost:auth/auth"
-
-//"mongodb://user:password@ds145892.mlab.com:45892/landmarks"
 mongoose.connect(mongoURL);
 
 

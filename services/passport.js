@@ -8,7 +8,7 @@ var LocalStrategy = require('passport-local');
 //create local strategy. check if need usernameField
 var localLogin = new LocalStrategy({usernameField: 'username'}, function(username, password, done) {
 	// verify this username and password.
-	User.findOne({}, function(err, user) {
+	User.findOne({username}, function(err, user) {
 		if (err) { return done(err); }
 		//call done with false if incorrect
 		if (!user) { return done(null, false)}
