@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 //DB Setup
 
-var mongoURL = "mongodb://localhost:auth/auth"
+var mongoURL = "mongodb://user:user@ds032340.mlab.com:32340/landmarks2"||"mongodb://localhost:auth/auth"
 
 // "mongodb://user:user@ds032340.mlab.com:32340/landmarks2"||"mongodb://localhost:auth/auth"
 
