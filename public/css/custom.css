@@ -4,9 +4,9 @@
 }
 
 body {
-  background-image: url("../images/airplane.jpg");
+  /*background-image: url("../images/airplane.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
   margin: auto;
   text-align: center;
 }
@@ -16,11 +16,16 @@ section {
   align-content: center;
 }
 
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 100px
+}
+
 .dropzonebox {
   width: 50%;
   height: 100px;
   border-style: dashed;
-  margin: auto;
+  margin: 10% auto;
   background-color: white;
   line-height: 90px;
 }

@@ -52,7 +52,7 @@ module.exports=function(app) {
 
   app.post('/upload',function(request,response,next){
 
-   console.log('helo')
+   console.log("REQUEST", request)
    });
 
 };
