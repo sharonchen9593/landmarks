@@ -21,10 +21,6 @@ router(app)
 
 //Server Setup
 
-app.post('/upload', (res,req) => {
-  console.log('hiiiii')
-})
-
 var port = process.env.PORT || 3000;
 
 
