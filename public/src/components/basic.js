@@ -11,22 +11,23 @@ class Basic extends React.Component {
     super(props)
 
     this.state={
-      landmarkName: '',
-      landmarkLat: '',
-      landmarkLon: ''
+      landmarkName: 'Loading...',
+      landmarkLat: 'Loading...',
+      landmarkLon: 'Loading...'
     }
   }
 
 
   render() {
     return (
-      <div>
-        <input type="file" onChange={() => this.previewFile()}></input>
+      <section>
+        <div className="title">Landmarks</div>
+        <input type="file" onChange={() => this.previewFile()} className="uploadimg"></input>
         <img src="" height="200" alt="Image preview..." id="uploadedimg"/>
         <div>Name: {this.state.landmarkName}</div>
         <div>Latitude: {this.state.landmarkLat}</div>
         <div>Longitude: {this.state.landmarkLon}</div>
-      </div>
+      </section>
     );
   }
 
@@ -48,20 +49,20 @@ class Basic extends React.Component {
     var base64String = reader.result.slice(23)
 
     var postBody = {
-        "requests":[
-          {
-            "image":{
-              "content": base64String
-            },
-            "features":[
-              {
-                "type":"LANDMARK_DETECTION",
-                "maxResults":10
-              }
-            ]
-          }
-        ]
-      }
+      "requests":[
+        {
+          "image":{
+            "content": base64String
+          },
+          "features":[
+            {
+              "type":"LANDMARK_DETECTION",
+              "maxResults":10
+            }
+          ]
+        }
+      ]
+    }
 
 
 
