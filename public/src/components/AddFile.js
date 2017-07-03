@@ -40,11 +40,35 @@ class AddFile extends React.Component {
         <div>Name: {this.state.landmarkName}</div>
         <div>Latitude: {this.state.landmarkLat}</div>
         <div>Longitude: {this.state.landmarkLon}</div>
+        {this.favoritesButton()}
         </div>
         )
 
     }
 
+  }
+
+  favoritesButton() {
+    if (localStorage.getItem('token')) {
+      return(
+      <button onClick = {this.addToFavorites()}>Add Landmark to Profile</button>
+      )
+    } else {
+      return (
+        <div> Sign in to add Landmark to Profile</div>
+        )
+    }
+  }
+
+  addToFavorites() {
+    axios.post('/favorite', JSON.stringify({name: this.state.landmarkName, username: localStorage.username}))
+    .then(function(response) {
+      alert("added to destinations")
+
+    })
+    .catch(function(err) {
+      console.log("err", err)
+    })
   }
 
 

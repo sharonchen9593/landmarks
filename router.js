@@ -1,7 +1,7 @@
 var Authentication = require('./controllers/authentication');
 var passportService = require('./services/passport');
 var passport = require('passport');
-
+var User = require('./models/user');
 
 
 
@@ -43,5 +43,22 @@ module.exports=function(app) {
     console.log(req)
   });
   app.post('/signup', Authentication.signup);
+
+  app.post('/favorite', function(req, res) {
+    var body = req.body
+    console.log(body)
+    User.findOneAndUpdate({username:body.username},{$push:{destinations:body.name}}, (err,user) => {
+      console.log("err", err)
+      console.log("user", user)
+      res.json(user)
+  })
+  })
+
+  app.post('/userData', function(req, res) {
+    var body =req.body;
+    User.findOne({username:body.username}, function(err, user) {
+      res.json(user)
+    })
+  })
 
 };
