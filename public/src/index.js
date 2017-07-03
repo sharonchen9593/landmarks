@@ -7,14 +7,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import reducer from '../actions'
-
 import App from './components/app';
-import SignIn from './components/signin';
-import SignUp from './components/signup';
-import NavBar from './components/navbar';
-import Profile from './components/profile';
-import Signout from './components/signout';
-import MainPage from './components/mainpage';
 import {SIGNIN_SUCCESS} from '../actions'
 
 const store = createStore(reducer, {}, applyMiddleware(thunk, logger));
