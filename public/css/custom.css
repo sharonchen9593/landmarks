@@ -3,6 +3,15 @@
     white-space: nowrap;
 }
 
+h1 {
+  font-family: 'Dancing Script', cursive;
+}
+
+.brand {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+}
+
 body {
   /*background-image: url("../images/airplane.jpg");
   background-size: cover;

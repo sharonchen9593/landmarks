@@ -76,12 +76,13 @@ class AddFile extends React.Component {
     return (
       <section>
         <div className="title">Landmarks</div>
+        <p>Upload a picture to find the landmark name and location!</p>
         <Dropzone
           accept="image/jpeg, image/png"
           onDrop={this.previewFile.bind(this)}
           className="dropzonebox"
         >
-            <button>Click Here to select files to upload.</button>
+            <button>Click Here to upload an image</button>
           </Dropzone>
           <br />
           <img height="200" id="uploadedimg"/>
@@ -108,6 +109,8 @@ class AddFile extends React.Component {
 
   reader.addEventListener("load", function () {
     preview.src = reader.result;
+
+    console.log(reader.result)
 
     var base64String = reader.result.slice(23)
 
