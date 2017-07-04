@@ -75,7 +75,7 @@ class AddFile extends React.Component {
   render() {
     return (
       <section>
-        <div className="title">Landmarks</div>
+        <div className="title">LandMarks</div>
         <p>Upload a picture to find the landmark name and location!</p>
         <Dropzone
           accept="image/jpeg, image/png"
