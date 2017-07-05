@@ -76,7 +76,7 @@ class AddFile extends React.Component {
     return (
       <section>
         <div className="title">LandMarks</div>
-        <p>Upload a picture to find the landmark name and location!</p>
+        <p className="text">Upload a picture to find the landmark name and location!</p>
         <Dropzone
           accept="image/jpeg, image/png"
           onDrop={this.previewFile.bind(this)}
@@ -85,9 +85,11 @@ class AddFile extends React.Component {
             <button>Click Here to upload an image</button>
           </Dropzone>
           <br />
-          <img height="200" id="uploadedimg"/>
+          <div className="imagebox">
+          <img width="300" id="uploadedimg"/>
           <br />
         {this.renderNameLatLong()}
+        </div>
       </section>
 
     );

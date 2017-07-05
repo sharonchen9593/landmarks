@@ -36,7 +36,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse collapseOnSelect>
+        <Navbar collapseOnSelect className="navbar">
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/" className="brand">LandMarks</a>
