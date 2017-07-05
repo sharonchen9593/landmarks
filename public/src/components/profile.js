@@ -27,7 +27,6 @@ export default class Profile extends React.Component {
 
   renderUserDestinations(destinations) {
     if (this.state.loaded === false) {
-      console.log(destinations)
       this.setState({destinations: destinations, loaded: true})
 
     }
@@ -50,8 +49,6 @@ export default class Profile extends React.Component {
           <h1>Saved Destinations </h1>
           {this.getUserDestinations()}
           <ul>
-
-          {console.log(this.state.destinations)}
 
           {this.state.destinations.map( destination => <li key={destination}>{destination}</li> )}
           </ul>

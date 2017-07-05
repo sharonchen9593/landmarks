@@ -97,7 +97,6 @@ class AddFile extends React.Component {
 
   changeState(name, lat, lon) {
     this.setState({landmarkName: name, landmarkLon: lon, landmarkLat: lat, loading: false})
-    console.log(this.state)
   }
 
   previewFile() {
@@ -111,8 +110,6 @@ class AddFile extends React.Component {
 
   reader.addEventListener("load", function () {
     preview.src = reader.result;
-
-    console.log(reader.result)
 
     var base64String = reader.result.slice(23)
 
@@ -139,8 +136,6 @@ class AddFile extends React.Component {
       var name = response.data.responses[0].landmarkAnnotations[0].description
       var lat = response.data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
       var lon = response.data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
-      console.log("response", response)
-      console.log("data", name, lat, lon)
       self.changeState(name, lat, lon)
 
     })
