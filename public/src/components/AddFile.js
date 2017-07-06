@@ -71,6 +71,10 @@ class AddFile extends React.Component {
     })
   }
 
+  renderThisIfTrue(){
+
+  }
+
 
   render() {
     return (
@@ -85,7 +89,7 @@ class AddFile extends React.Component {
             <button>Click Here to upload an image</button>
           </Dropzone>
           <br />
-          <div className="imagebox">
+          <div className="imagebox hidden">
           <img width="300" id="uploadedimg"/>
           <br />
         {this.renderNameLatLong()}
@@ -103,6 +107,7 @@ class AddFile extends React.Component {
   var preview = document.querySelector('img');
   var file    = document.querySelector('input[type=file]').files[0];
   var reader  = new FileReader();
+  var imagebox = document.querySelector('.imagebox');
 
   this.setState({loading: true})
 
@@ -110,6 +115,7 @@ class AddFile extends React.Component {
 
   reader.addEventListener("load", function () {
     preview.src = reader.result;
+    imagebox.classList.remove('hidden');
 
     var base64String = reader.result.slice(23)
 
