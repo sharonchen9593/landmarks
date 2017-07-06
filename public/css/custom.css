@@ -84,6 +84,8 @@ button {
   border-radius: 10px;
   border-width: 0;
   padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size:15px;
 }
 .content1 {
   width: 50%;
